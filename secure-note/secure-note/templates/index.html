@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Secret storage</title>
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #292929;">
+    <a class="navbar-brand mx-3" href="#" style="color: #bebebe"><h2><strong>SecNote</strong></h2></a>
+
+        <ul class="nav">
+            <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/" style="color: #e4e4e4"><h4>Home</h4></a>
+            </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/create" style="color: #e4e4e4"><h4>Create</h4></a>
+            </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/check" style="color: #e4e4e4"><h4>Check</h4></a>
+            </li>
+        </ul>
+</nav>
+</div>
+<div class="container mt-5 text-center">
+    <h2 class="display-3 text-center">Secure Note</h2>
+    <p class="text-center"><em>Customer safety comes first</em></p>
+    <p class="h4">We use advanced cryptography technology to protect our clients' notes.</p>
+    <p class="h5">    SecNote is easy to use. First you need to create your own key. You can do this on the home page.</p>
+    <p class="h5">    You can use different keys for different notes, or you can use one key for all.</p>
+    <p class="h5">    To create a note you need to go to the create section and fill in the fields.</p>
+    <p class="h5">    Be sure to attach your key, with it your notes will be securely encrypted.</p>
+    <p class="h5">    It is very easy to view your notes.</p>
+    <p class="h5">    You need to go to the check section and send your key.</p>
+    <small class="text-muted">Remember: you must keep your key in a safe place.</small>
+
+</div>
+<div class="container text-center" style="margin-top: 100px"> 
+    <div class="justify-content-center d-inline-flex">
+    <form action="" method="post" enctype="multipart/form-data" >
+        <input type="submit" class="btn btn-dark" value="Get key">
+    </form>
+    <p class="mx-lg-4 mt-2">then</p>
+    <form action="/create" method="">
+        <button class="btn btn-outline-dark">Create note</button>
+    </form>
+    </div>
+</div>
+
+
+</body>
+</html>
