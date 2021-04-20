@@ -1,0 +1,36 @@
+version: '3.7'
+networks:
+  default:
+services:
+  db:
+    image: mongo:4
+    hostname: db
+    restart: always
+    volumes:
+      - ./docker-data/db:/data/db
+    ports:
+      - ${MONGO_OUTER_PORT}:${MONGO_PORT}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    networks:
+      - default
+  app:
+    build: .
+    restart: always
+    volumes:
+      - npm_cache:/root/.npm:delegated
+      - node_modules:/usr/src/app/node_modules:delegated
+    ports:
+      - ${FEATHERS_OUTER_PORT}:${PORT}
+    environment:
+      PORT: ${PORT}
+      HOST: ${HOST}
+      JWT_SECRET: ${JWT_SECRET}
+    networks:
+      - default
+    depends_on:
+      - db
+volumes:
+  npm_cache:
+  node_modules:
