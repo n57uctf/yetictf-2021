@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  web:
+    build:
+      context: ./
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+      - phpmyadmin
+  db:
+    build:
+      context: ./mysql-dump
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 12345
+      MYSQL_DATABASE: merc
+    ports:
+      - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.9
+    depends_on:
+      - db
+    ports: 
+      - "8001:80"
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: root
+      PMA_HOST: db
+      PMA_PORT: 3306

@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  notestorage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: notestorage
+    restart: unless-stopped
+    ports:
+      - "8050:80"
